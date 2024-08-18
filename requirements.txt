@@ -1,0 +1,11 @@
+pandas
+numpy
+matplotlib
+scipy
+networkx
+langchain
+openai
+streamlit
+youtube_transcript_api
+langchain-community
+langchain-openai
