@@ -9,3 +9,4 @@ streamlit
 youtube_transcript_api
 langchain-community
 langchain-openai
+requests

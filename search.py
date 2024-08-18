@@ -1,13 +1,10 @@
+import os
 import re
 import streamlit as st
 import requests
-import json
 
 # Perplexity AI API endpoint
 API_URL = "https://api.perplexity.ai/chat/completions"
-
-# Replace with your actual API key
-API_KEY = "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"
 
 
 def search(content: str):
@@ -18,7 +15,7 @@ def search(content: str):
     headers = {
         "accept": "application/json",
         "content-type": "application/json",
-        "authorization": f"Bearer {API_KEY}",
+        "authorization": f"Bearer {os.getenv('PERPLEXITY_API_KEY')}",
     }
 
     response = requests.post(API_URL, json=payload, headers=headers)
