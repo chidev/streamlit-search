@@ -11,7 +11,7 @@ API_URL = "https://api.perplexity.ai/chat/completions"
 
 
 def tags(content: str):
-    msg = f"""Your response should be 2 lines, without a label at the beginning of the line, on the first line of the  extract all the cities in a comma separated list, and then, on the second line, extract all of the professions in a comma separated list from the following text:
+    msg = f"""Your response should be 2 lines, without a label at the beginning of the line, on the first line extract all the cities in a comma separated list, and then, on the second line, extract all of the professions in a comma separated list from the following text:
     {content}"""
 
     payload = {
@@ -79,14 +79,14 @@ st.html(
 name = st.text_input("Enter a person's name:")
 city = st.text_input("Enter a city:")
 profession = st.text_input("Enter a profession:")
-exclude = st.text_input("Enter any keywords to exclude:")
+company = st.text_input("Enter a company:")
 
 if st.button("Search"):
     if name:
         with st.spinner("Searching..."):
-            term = ", ".join(list(filter(None, [name, city, profession])))
-            if exclude:
-                term = f"{term}. Do not include results for '{exclude}'"
+            term = ", ".join(
+                list(filter(None, [name, f"in {city}", profession, company]))
+            )
 
             # news = search(f"Find recent news mentioning {name}")
             # youtube = search(f"Find youtube for {term}")
