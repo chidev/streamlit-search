@@ -70,11 +70,9 @@ def extract_usernames(text):
 
 # Streamlit UI
 st.title("Humblebrag AI lookup")
+st.html("<p>1. Enter a person's name.</p>")
 st.html(
-    "<p>Enter a person's name. If there are multiple results and you want to narrow it down, add more city and profession.</p>"
-)
-st.html(
-    "<p>The HB app will be able to scan each block below and prompt the user to refine their search, then import the information into the contact.</p>"
+    "<p>2. If there are multiple results, use the additional fields to narrow down your search.</p>"
 )
 name = st.text_input("Enter a person's name:")
 city = st.text_input("Enter a city:")
